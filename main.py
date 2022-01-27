@@ -16,8 +16,14 @@ def fib_recursive(n:int) -> int:
 A dynamic programming approach.
 '''
 def fib_dynamic(n:int) -> int:
-    pass
-
+    if n <= 1:
+        return n
+    # populate indices 0 and 1
+    F = [0, 1]
+    for i in range(2, n + 1):
+        F.append(F[i-2] + F[i-1])
+    return F[n]
 
 if __name__ == '__main__':
     print(fib_recursive(9))
+    print(fib_dynamic(9))
